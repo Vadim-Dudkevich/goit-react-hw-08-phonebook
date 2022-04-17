@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './ContactItem.module.css';
+import { ReactComponent as IconDel } from '..//icons/delete.svg';
 
 export default function ContactItem({ name, number, onDelContact }) {
   return (
@@ -12,7 +13,7 @@ export default function ContactItem({ name, number, onDelContact }) {
         type="button"
         onClick={onDelContact}
       >
-        Delete
+        <IconDel width="35" height="35" />
       </button>
     </>
   );
