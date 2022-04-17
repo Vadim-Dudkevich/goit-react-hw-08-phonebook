@@ -1,0 +1,10 @@
+.phonebook {
+  margin: 20px auto;
+
+  width: 320px;
+
+  background-color: #2d2c2e;
+
+  border: 1px solid #000;
+  border-radius: 10px;
+}

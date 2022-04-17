@@ -1,0 +1,18 @@
+.section {
+  padding: 10px 0;
+  margin: auto;
+}
+
+.container {
+  width: 100%;
+}
+
+.section h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
