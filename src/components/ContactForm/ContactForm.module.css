@@ -26,7 +26,6 @@
   padding: 0 10px;
 }
 
-.input:focus + span,
 .input:focus {
   border-color: #fbbd0d;
 }

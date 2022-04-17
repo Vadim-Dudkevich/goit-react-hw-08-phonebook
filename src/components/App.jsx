@@ -4,6 +4,7 @@ import css from './App.module.css';
 import Section from './Section';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
+import Filter from './Filter';
 // import ContactItem from './ContactItem';
 // import { css } from 'styled-components';
 // import { render } from '@testing-library/react';
@@ -53,6 +54,10 @@ class App extends Component {
     );
   };
 
+  changeFilter = e => {
+    this.setState({ filter: e.target.value });
+  };
+
   render() {
     const addContact = this.addContact;
     const visibleContacts = this.getFilteredContacts();
@@ -64,6 +69,7 @@ class App extends Component {
           <ContactForm onSubmit={addContact} />
 
           <h2 className={css.contactTitle}>Contacts</h2>
+          <Filter value={this.state.filter} onChange={this.changeFilter} />
           <ContactList
             contacts={visibleContacts}
             onDelContact={this.deleteContact}
