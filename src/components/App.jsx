@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-// import { css } from 'styled-components';
 import css from './App.module.css';
 import Section from './Section';
 import ContactForm from './ContactForm';
+import ContactList from './ContactList';
+// import ContactItem from './ContactItem';
+// import { css } from 'styled-components';
 // import { render } from '@testing-library/react';
 
 class App extends Component {
@@ -36,14 +38,36 @@ class App extends Component {
         }));
   };
 
+  deleteContact = id => {
+    this.setState(prevStage => ({
+      contacts: prevStage.contacts.filter(contact => contact.id !== id),
+    }));
+  };
+
+  getFilteredContacts = () => {
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
   render() {
     const addContact = this.addContact;
+    const visibleContacts = this.getFilteredContacts();
 
     return (
       <div className={css.phonebook}>
         <Section>
           <h1>Phonebook</h1>
           <ContactForm onSubmit={addContact} />
+
+          <h2 className={css.contactTitle}>Contacts</h2>
+          <ContactList
+            contacts={visibleContacts}
+            onDelContact={this.deleteContact}
+          />
         </Section>
       </div>
     );

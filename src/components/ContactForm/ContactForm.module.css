@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 80%;
+  /* width: 80%; */
   margin-bottom: 15px;
   font-size: 14px;
 }
@@ -18,7 +18,7 @@
 }
 
 .input {
-  border: 1px solid #858585;
+  border: 2px solid transparent;
   border-radius: 6px;
   font-size: 14px;
   height: 30px;
@@ -26,19 +26,24 @@
   padding: 0 10px;
 }
 
+.input:focus + span,
+.input:focus {
+  border-color: #fbbd0d;
+}
+
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px 30px;
   margin: 0 15px;
-  height: 30px;
+
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 700;
 
   transition: background-color 0.3s linear;
-  width: 200px;
 
   background-color: #fbbd0d;
 }

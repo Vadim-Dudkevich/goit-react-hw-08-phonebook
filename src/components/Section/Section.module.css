@@ -1,10 +1,13 @@
 .section {
-  padding: 10px 0;
+  /* padding: 10px 0; */
   margin: auto;
 }
 
 .container {
   width: 100%;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  margin: 0 auto;
 }
 
 .section h1 {
