@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import css from '../ContactForm/ContactForm.module.css';
 
 class ContactForm extends Component {
@@ -13,8 +13,8 @@ class ContactForm extends Component {
     number: '',
   };
 
-  hinputNameId = nanoid();
-  inputNumberId = nanoid();
+  // hinputNameId = nanoid();
+  // inputNumberId = nanoid();
 
   handleChange = event => {
     const { name, value } = event.target;

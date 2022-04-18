@@ -5,9 +5,6 @@ import Section from './Section';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
-// import ContactItem from './ContactItem';
-// import { css } from 'styled-components';
-// import { render } from '@testing-library/react';
 
 class App extends Component {
   state = {
@@ -18,8 +15,6 @@ class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   addContact = data => {
