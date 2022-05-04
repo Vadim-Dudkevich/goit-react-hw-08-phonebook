@@ -51,7 +51,7 @@ export default function App() {
   };
 
   const changeFilter = e => {
-    setFilter({ filter: e.target.value });
+    setFilter(e.target.value);
   };
 
   const filterContacts = () => {
