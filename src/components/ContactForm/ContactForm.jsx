@@ -1,17 +1,25 @@
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import css from '../ContactForm/ContactForm.module.css';
+// import PropTypes from 'prop-types';
 
-export default function ContactForm({ onSubmit }) {
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/contactsSlice';
+import css from './ContactForm.module.css';
+import { nanoid } from 'nanoid';
+
+export default function ContactForm() {
+  const dispatch = useDispatch;
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const inputNameId = nanoid();
+  const inputNumberId = nanoid();
 
   const handleNameChange = event => setName(event.target.value);
   const handleNumberChange = event => setNumber(event.target.value);
 
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit({ name, number });
+    dispatch(addContact({ name, number }));
     reset();
   };
 
@@ -22,7 +30,7 @@ export default function ContactForm({ onSubmit }) {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      <label className={css.label}>
+      <label className={css.label} htmlFor={inputNameId}>
         <span className={css.title}>Name</span>
         <input
           className={css.input}
@@ -35,7 +43,7 @@ export default function ContactForm({ onSubmit }) {
           required
         />
       </label>
-      <label className={css.label}>
+      <label className={css.label} htmlFor={inputNumberId}>
         <span className={css.title}>Number</span>
         <input
           className={css.input}
@@ -55,6 +63,6 @@ export default function ContactForm({ onSubmit }) {
   );
 }
 
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// ContactForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
