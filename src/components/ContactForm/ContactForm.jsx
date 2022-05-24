@@ -7,7 +7,7 @@ import css from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
 
 export default function ContactForm() {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
