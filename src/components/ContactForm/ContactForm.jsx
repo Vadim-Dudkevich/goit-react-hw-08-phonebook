@@ -1,15 +1,19 @@
 // import PropTypes from 'prop-types';
 
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { useGetContactsQuery } from '../../redux/contactsSlice';
+import { useAddContactMutation } from '../../redux/contactsSlice';
 import css from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
+import { Report } from 'notiflix';
+import Notiflix from 'notiflix';
 
 export default function ContactForm() {
-  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const { data } = useGetContactsQuery();
+  const [addContact] = useAddContactMutation();
 
   const inputNameId = nanoid();
   const inputNumberId = nanoid();
@@ -17,9 +21,25 @@ export default function ContactForm() {
   const handleNameChange = event => setName(event.target.value);
   const handleNumberChange = event => setNumber(event.target.value);
 
+  const handleAddContact = async values => {
+    try {
+      await addContact(values);
+      Notiflix.Notify.success('Contact added');
+    } catch (error) {
+      Notiflix.Notify.failure('Oops, something goes wrong');
+    }
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addContact({ name, number }));
+
+    data.some(contact => contact.name === name)
+      ? Report.warning(
+          `${name} is already in contacts`,
+          'Please enter another name'
+        )
+      : handleAddContact({ name, number });
+
     reset();
   };
 
@@ -35,6 +55,7 @@ export default function ContactForm() {
         <input
           className={css.input}
           onChange={handleNameChange}
+          id={inputNameId}
           type="text"
           name="name"
           value={name}
@@ -48,6 +69,7 @@ export default function ContactForm() {
         <input
           className={css.input}
           onChange={handleNumberChange}
+          id={inputNumberId}
           type="tel"
           name="number"
           value={number}
