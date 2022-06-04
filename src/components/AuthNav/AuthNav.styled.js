@@ -7,7 +7,6 @@ export const NavigationLink = styled(NavLink)`
   font-weight: 500;
   color: #fff;
   font-size: 18px;
-  /* border: solid 1px transparent; */
 
   &:hover {
     color: #fbbd0d;
@@ -16,11 +15,6 @@ export const NavigationLink = styled(NavLink)`
   &.active {
     color: #fff;
     background: #fbbd0d;
-    /* border: solid 1px #fbbd0d; */
     border-radius: 6px;
   }
-
-  /* &:not(:last-child) {
-    margin-right: 15px;
-  } */
 `;

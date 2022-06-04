@@ -12,3 +12,9 @@
 .contactItem:not(:last-child) {
   margin-bottom: 10px;
 }
+
+.contactAvatar {
+  padding: 10px;
+  background-color: #2d2c2e;
+  border-radius: 6px;
+}

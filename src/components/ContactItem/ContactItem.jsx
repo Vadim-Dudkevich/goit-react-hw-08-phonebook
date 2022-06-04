@@ -4,7 +4,7 @@ import { useDeleteContactMutation } from '../../redux/contactsSlice';
 import { ReactComponent as IconDel } from '..//icons/delete.svg';
 
 export default function ContactItem({ name, number, id }) {
-  const [deleteContact, { isLoading }] = useDeleteContactMutation();
+  const [deleteContact] = useDeleteContactMutation();
   return (
     <>
       <span className={css.contact}>
@@ -14,7 +14,6 @@ export default function ContactItem({ name, number, id }) {
         className={css.contactDelBtn}
         type="button"
         onClick={() => deleteContact(id)}
-        disabled={isLoading}
       >
         <IconDel width="35" height="35" />
       </button>

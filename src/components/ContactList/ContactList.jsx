@@ -9,7 +9,7 @@ import { ReactComponent as IconContact } from '..//icons/contact.svg';
 export default function ContactList() {
   const filter = useSelector(getFilter);
 
-  const { data, error, isLoading } = useGetContactsQuery();
+  const { data, error } = useGetContactsQuery();
 
   const filteredContacts = useMemo(() => {
     return (
@@ -22,16 +22,17 @@ export default function ContactList() {
   return (
     <ul className={css.contactList}>
       {error && <p>Oops, something goes wrong, please reload this page</p>}
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        filteredContacts.map(({ name, number, id }) => (
-          <li key={id} className={css.contactItem}>
-            <IconContact width="25" height="25" fill="#faf5e6" />
-            <ContactItem name={name} number={number} id={id} />
-          </li>
-        ))
-      )}
+      {filteredContacts.map(({ name, number, id }) => (
+        <li key={id} className={css.contactItem}>
+          <IconContact
+            className={css.contactAvatar}
+            width="45"
+            height="45"
+            fill="#faf5e6"
+          />
+          <ContactItem name={name} number={number} id={id} />
+        </li>
+      ))}
       {filteredContacts.length === 0 && (
         <p>There are no contact with this name</p>
       )}
