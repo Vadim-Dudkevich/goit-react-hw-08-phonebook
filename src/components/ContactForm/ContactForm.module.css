@@ -17,7 +17,7 @@
 }
 
 .input {
-  border: 1px solid #2d2c2e;
+  border: 2px solid transparent;
   border-radius: 6px;
   font-size: 14px;
   height: 30px;
