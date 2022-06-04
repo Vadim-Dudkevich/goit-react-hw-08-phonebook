@@ -15,6 +15,6 @@
 
 .contactAvatar {
   padding: 10px;
-  background-color: #2d2c2e;
   border-radius: 6px;
+  border: solid 1px #fbbd0d;
 }
