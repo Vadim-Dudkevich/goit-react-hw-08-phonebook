@@ -29,8 +29,3 @@ export default function Filter() {
     </div>
   );
 }
-
-// Filter.prototype = {
-//   value: PropTypes.string.isRequired,
-//   onChange: PropTypes.func.isRequired,
-// };

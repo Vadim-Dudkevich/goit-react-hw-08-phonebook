@@ -1,4 +1,10 @@
-@import-normalize; /* bring in normalize.css styles */
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+
+  * {
+    box-sizing: border-box;
+  }
 
 body {
   margin: 0;
@@ -31,4 +37,4 @@ ul {
 
 a {
   text-decoration: none;
-}
+}`;
