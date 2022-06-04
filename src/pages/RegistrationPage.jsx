@@ -80,7 +80,7 @@ export default function RegisterPage() {
           />
         </Form.Group>
         <Button variant="outline-primary" type="submit">
-          Register
+          Sign up for PhoneBook
         </Button>
       </Form>
     </Container>

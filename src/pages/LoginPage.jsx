@@ -63,7 +63,7 @@ export default function LoginPage() {
           />
         </Form.Group>
         <Button variant="outline-primary" type="submit">
-          Log In
+          Sign In
         </Button>
       </Form>
     </Container>
